@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #e8e8e8;
+}
+
+/* Navbar */
+nav {
+  background-color: rgb(59, 59, 133);
+  height: 50px;
+  color: wheat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav h1 {
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.navbar li a:hover {
+  color: red;
+}
+
+/* Books */
+.Books-wrapper {
+  display: table;
+  margin: 0 auto;
+}
+
+.Books {
+  list-style: none;
+}
+
+.Book {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 5px 0 #000;
+  border-radius: 5px;
+  aspect-ratio: 10/1;
+  height: 80px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.Book-nav-item {
+  padding: 0 5px;
+  display: inline;
+  list-style: none;
+}
+
+.middle {
+  border-right: #000 1px solid;
+  border-left: 1px solid #000;
+}
+
+.Book-nav-item button {
+  cursor: pointer;
+  background-color: unset;
+  border: none;
+}
+
+.Book-nav-item button:hover {
+  color: rebeccapurple;
+}
+
+/* Add book */
+.Addbook {
+  display: table;
+  margin: 0 auto;
+}
+
+.Addbook ul {
+  list-style: none;
+}
+
+.Addbook ul li {
+  height: 20px;
+  margin: 10px 0;
+}
+
+.Addbook label {
+  float: right;
+}
+
+.Addbook input {
+  float: right;
+}
