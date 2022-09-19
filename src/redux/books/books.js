@@ -1,54 +1,67 @@
-const ADDED = 'app/reducer/ADDED';
-const REMOVED = 'app/reducer/REMOVED';
+const axios = require('axios');
 
-const objdefault = [
-  {
-    id: 0,
-    ganre: 'Action',
-    title: 'Hunger Games',
-    author: 'Suzanne Collins',
-  },
-  {
-    id: 1,
-    ganre: 'Novel',
-    title: 'After',
-    author: 'Anna Todd',
-  },
-];
+const ADDED = 'ADDED';
+const REMOVED = 'REMOVED';
+const LOADED = 'LOADED';
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/gM4DiKZlFOaRjYYQs32M/books';
 
-const bookReducer = (state = objdefault, action) => {
-  switch (action.type) {
+const bookReducer = (state = [], { type, payload }) => {
+  switch (type) {
     case ADDED:
       return [
         ...state,
         {
-          author: action.author,
-          ganre: action.genre,
-          title: action.title,
-          id: state.length,
+          author: payload.author,
+          category: payload.category,
+          title: payload.title,
+          id: payload.item_id,
         },
       ];
     case REMOVED:
       return [
-        ...state.slice(0, action.id),
-        ...state.slice(action.id + 1),
+        ...state.filter((item) => item.id !== payload.item_id),
       ];
+    case LOADED:
+      return payload;
     default: return state;
   }
 };
 
-export function addBook(gen, tit, auth) {
-  return {
+const addBook = (newBook) => async (dispatch) => {
+  const book = {
+    item_id: newBook.id,
+    author: newBook.author,
+    category: newBook.category,
+    title: newBook.title,
+  };
+  axios.post(url, book);
+  dispatch({
     type: ADDED,
-    author: auth,
-    genre: gen,
-    title: tit,
-  };
-}
-export function removeBook(prop) {
-  return {
+    payload: book,
+  });
+};
+
+const removeBook = (id) => async (dispatch) => {
+  axios.delete(`${url}/${id}`, { item_id: id });
+  dispatch({
     type: REMOVED,
-    id: prop,
-  };
-}
+    payload: {
+      item_id: id,
+    },
+  });
+};
+
+const tryBooksLoad = async (dispatch) => {
+  const data = await axios.get(url).then((res) => res.data);
+  const books = Object.keys(data).map((key) => ({
+    id: key,
+    ...data[key][0],
+  }));
+  dispatch({
+    type: LOADED,
+    payload: books,
+  });
+};
+
 export default bookReducer;
+export { addBook, removeBook, tryBooksLoad };
