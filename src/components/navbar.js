@@ -16,7 +16,7 @@ export default function Navbar() {
   ];
   return (
     <nav>
-      <h1>Bookstore</h1>
+      <h1>Bookstore CMS</h1>
       <ul className="navbar">
         {links.map((link) => (
           <li key={link.id}>

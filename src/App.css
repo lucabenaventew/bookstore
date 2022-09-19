@@ -1,50 +1,49 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
-  background-color: #e8e8e8;
+  background-color: #f8f8f8;
 }
 
 /* Navbar */
 nav {
-  background-color: rgb(59, 59, 133);
-  height: 50px;
-  color: wheat;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  background-color: #fff;
+  height: 50px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.192);
 }
 
 nav h1 {
-  text-transform: uppercase;
-}
-
-.navbar {
-  display: flex;
-  gap: 1rem;
+  color: #227ded;
+  font-size: 30px;
+  margin: 0 20px 0 60px;
 }
 
 .navbar li {
   display: inline;
+  margin: 0 20px;
 }
 
 .navbar li a {
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none;
-  color: #fff;
-  transition: all 0.5s;
+  color: #646464;
 }
 
 .navbar li a:hover {
-  color: red;
+  color: #121212;
 }
 
 /* Books */
 .Books-wrapper {
   display: table;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #c7c7c7;
 }
 
 .Books {
@@ -52,55 +51,162 @@ nav h1 {
 }
 
 .Book {
-  background-color: #f5f5f5;
-  box-shadow: 0 0 5px 0 #000;
-  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.192);
+  border-radius: 3px;
   aspect-ratio: 10/1;
   height: 80px;
-  margin: 10px;
-  padding: 10px;
+  margin: 10px 0;
+  padding: 30px 60px 30px 20px;
+}
+
+.Book-info {
+  float: left;
+}
+
+.Book-info h4 {
+  font-size: 14px;
+  color: #646464;
+}
+
+.Book-info h2 {
+  font-size: 22px;
+}
+
+.Book-info p {
+  font-size: 14px;
+  color: #227ded;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .Book-nav-item {
-  padding: 0 5px;
   display: inline;
   list-style: none;
 }
 
 .middle {
-  border-right: #000 1px solid;
-  border-left: 1px solid #000;
+  border-right: rgb(190 190 190 / 56.2%) 2px solid;
+  border-left: 2px solid rgb(190 190 190 / 56.2%);
 }
 
 .Book-nav-item button {
+  font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   background-color: unset;
   border: none;
+  color: #227ded;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.blue-btn {
+  font-family: 'Montserrat', sans-serif;
+  padding: 8px;
+  font-size: 10px;
+  background-color: #227ded;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 .Book-nav-item button:hover {
-  color: rebeccapurple;
+  border: 1px solid #227ded;
+  border-radius: 20px;
+  padding: 7px;
+}
+
+.Book-progress {
+  float: right;
+}
+
+.Book-stat-1 {
+  float: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 40px;
+  border-right: rgb(190 190 190 / 56.2%) solid 2px;
+}
+
+.Book-stat-2 {
+  float: right;
+  padding-left: 40px;
+}
+
+.Book-circle {
+  width: 80px;
+  height: 80px;
+}
+
+.Book-circle circle {
+  fill: none;
+  stroke-width: 5;
+  stroke: rgb(43, 61, 223);
+  transform: scale(0.9, 0.9) translate(5px, 85px) rotateZ(-90deg);
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+}
+
+.Book-circle circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: rgb(190 190 190 / 56.2%);
+}
+
+.Book-percent {
+  font-size: 30px;
+  font-weight: 300;
+  width: min-content;
+}
+
+.Book-percent span {
+  font-size: 14px;
+  float: left;
+  color: rgb(138, 138, 138);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Book-stat-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: rgb(138, 138, 138);
+}
+
+.Book-stat-chapter {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Add book */
 .Addbook {
   display: table;
-  margin: 0 auto;
+  margin: auto;
 }
 
-.Addbook ul {
+.Addbook h2 {
+  color: rgb(138, 138, 138);
+}
+
+.Addbook input,
+select {
+  padding: 8px;
+  border: 1px #c7c7c7 solid;
+  margin: 20px;
+}
+
+.Menu {
   list-style: none;
-}
-
-.Addbook ul li {
-  height: 20px;
-  margin: 10px 0;
-}
-
-.Addbook label {
   float: right;
 }
 
-.Addbook input {
+.Select {
+  background-color: #fff;
+  color: #646464;
+}
+
+.submit {
+  font-family: 'Roboto', sans-serif;
   float: right;
+  line-height: 20px;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
 }
