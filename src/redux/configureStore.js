@@ -1,15 +1,11 @@
-import { createStore, combineReducers } from 'redux';
-import * as books from './books/books';
-import * as checher from './categories/categories';
+import { legacy_createStore as createStore, combineReducers } from 'redux';
+import bookReducer from './books/books';
+import checkReducer from './categories/categories';
 
 const rootReducer = combineReducers({
-  book: books.bookReducer,
-  check: checher.checkReducer,
+  book: bookReducer,
+  check: checkReducer,
 });
 
 const store = createStore(rootReducer);
-
-store.subscribe(() => console.log(store.getState()));
-
-store.dispatch(books.removeBook);
-store.dispatch(books.addBook);
+export default store;
